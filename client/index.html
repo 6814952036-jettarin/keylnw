@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keylnw | เข้าสู่ระบบ</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="home-page shop-page">
+    <aside class="shop-sidebar">
+      <a class="brand shop-brand" href="./index.html"><span class="brand-mark">K</span><span>KEYLNW</span></a>
+      <div class="sidebar-user"><span class="user-avatar">K</span><div><strong>ยินดีต้อนรับ</strong><small>เข้าสู่ระบบเพื่อเริ่มเติมเกม</small></div></div>
+      <nav class="shop-menu" aria-label="เมนูร้านค้า">
+        <a class="active" href="./index.html"><span>⌂</span> หน้าหลัก</a><a href="./service.html?category=games"><span>▣</span> เติมเกม</a><a href="./service.html?category=cards"><span>▤</span> บัตรเติมเงิน / บัตรเติมเกม</a><a href="./service.html?category=vouchers"><span>▱</span> บัตร Gift Voucher</a><a href="./service.html?category=special"><span>♛</span> ตัวละครสุดพิเศษ</a><a href="./service.html?category=mobile"><span>▥</span> เติมเงินมือถือ <b>ใหม่</b></a><a href="./service.html?category=privacy"><span>◉</span> นโยบายความเป็นส่วนตัว</a><a href="./service.html?category=returns"><span>◫</span> นโยบายการคืนสินค้า</a>
+      </nav>
+      <div class="sidebar-promo">KEYLNW<br /><strong>เติมเกมง่าย<br />ได้ตลอด 24 ชม.</strong></div>
+    </aside>
+    <main class="shop-main" id="top">
+      <nav class="shop-topbar" aria-label="เมนูหลัก">
+        <button class="mobile-menu" type="button" aria-label="เปิดเมนู">☰</button><div class="shop-search"><span>⌕</span><input type="search" placeholder="ค้นหาสินค้า เกม หรือบริการ" /></div>
+        <div id="nav-actions"><a class="nav-login" href="/login.html">เข้าสู่ระบบ</a><a class="nav-button" href="/login.html#register">สมัครสมาชิก</a><button id="cart-toggle" class="cart-button" type="button" aria-controls="cart-panel" aria-expanded="false">ตะกร้า <span id="cart-count">0</span></button></div>
+      </nav>
+      <section class="shop-hero-grid">
+        <article class="promo-banner"><div><span class="promo-label">KEYLNW SPECIAL</span><h1>ช่องทางจ่ายเงินใหม่<br /><strong>จ่ายง่าย ได้ก่อน</strong></h1><p>เติมเกมไว ราคาคุ้ม ปลอดภัยทุกรายการ</p><a href="#products" class="promo-action">ดูสินค้าเลย <span>→</span></a></div><div class="promo-device">₿</div></article>
+        <aside class="news-box"><div class="box-title"><h2>ข่าวสาร</h2><a href="#how-to">ดูทั้งหมด</a></div><article><div class="news-thumb thumb-one"></div><div><b>เติมเกมง่ายขึ้นกับ KEYLNW</b><small>อัปเดตบริการใหม่ พร้อมโปรโมชั่นพิเศษ</small></div></article><article><div class="news-thumb thumb-two"></div><div><b>โปรเติมเกมประจำเดือน</b><small>สินค้าราคาพิเศษจำนวนจำกัด</small></div></article><article><div class="news-thumb thumb-three"></div><div><b>ระบบเติมเงินกลับมาให้บริการ</b><small>รวดเร็ว ปลอดภัย ใช้งานได้ตลอดวัน</small></div></article></aside>
+      </section>
+      <section class="flash-section" id="products" aria-labelledby="products-title">
+        <div class="flash-heading"><div><span class="flash-mark">FLASH</span><h2 id="products-title">สินค้าขายดี</h2></div><div class="countdown"><small>สิ้นสุดใน</small><b>03</b><i>:</i><b>09</b><i>:</i><b>22</b></div><a href="#products">แสดงทั้งหมด <span>→</span></a></div>
+        <div id="product-catalog" class="product-catalog" aria-live="polite"><p class="catalog-status">กำลังโหลดสินค้า...</p></div>
+      </section>
+      <section class="how-to shop-how" id="how-to" aria-labelledby="how-to-title"><p class="eyebrow">HOW IT WORKS</p><h2 id="how-to-title">เติมเกมได้ใน 3 ขั้นตอน</h2><ol><li><b>1</b> เลือกเกมและแพ็กเกจ</li><li><b>2</b> กรอก UID ของคุณ</li><li><b>3</b> ชำระเงินและรอรับไอเทม</li></ol></section>
+    </main>
+    <aside id="cart-panel" class="cart-panel" hidden aria-labelledby="cart-title">
+      <div class="cart-heading"><h2 id="cart-title">ตะกร้าสินค้า</h2><button id="cart-close" class="icon-button" type="button" aria-label="ปิดตะกร้า">×</button></div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-footer"><strong>รวมทั้งสิ้น <span id="cart-total">0</span> บาท</strong><button id="checkout-action" class="primary-link checkout-link" type="button">ดำเนินการสั่งซื้อ</button><p id="checkout-message" class="checkout-message" role="status"></p></div>
+    </aside>
+    <dialog id="product-dialog" class="product-dialog">
+      <button id="product-dialog-close" class="icon-button dialog-close" type="button" aria-label="ปิดรายละเอียด">×</button>
+      <div id="product-dialog-content"></div>
+    </dialog>
+    <main class="page-shell">
+      <section class="auth-card" aria-labelledby="page-title">
+        <div class="brand"><span class="brand-mark">K</span><span>KEYLNW</span></div>
+        <div id="auth-view">
+          <p class="eyebrow">WELCOME BACK</p>
+          <h1 id="page-title">เข้าสู่ระบบ</h1>
+          <p class="subtitle">จัดการบัญชีของคุณได้ในที่เดียว</p>
+
+          <form id="login-form" novalidate>
+            <label for="login-identifier">Email หรือชื่อผู้ใช้</label>
+            <input id="login-identifier" name="identifier" type="text" autocomplete="username" required placeholder="Email หรือชื่อผู้ใช้" />
+            <label for="login-password">รหัสผ่าน</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required placeholder="อย่างน้อย 8 ตัวอักษร" />
+            <button type="submit">เข้าสู่ระบบ</button>
+          </form>
+
+          <p class="switch-text">ยังไม่มีบัญชี? <button class="text-button" id="show-register" type="button">สมัครสมาชิก</button></p>
+        </div>
+
+        <div id="register-view" hidden>
+          <p class="eyebrow">CREATE ACCOUNT</p>
+          <h1>สมัครสมาชิก</h1>
+          <p class="subtitle">เริ่มต้นใช้งาน Keylnw ได้เลย</p>
+          <form id="register-form" novalidate>
+            <label for="register-username">ชื่อผู้ใช้</label>
+            <input id="register-username" name="username" type="text" autocomplete="username" required placeholder="ชื่อผู้ใช้" />
+            <label for="register-email">อีเมล</label>
+            <input id="register-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com" />
+            <label for="register-password">รหัสผ่าน</label>
+            <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="8" required placeholder="อย่างน้อย 8 ตัวอักษร" />
+            <button type="submit">สร้างบัญชี</button>
+          </form>
+          <p class="switch-text">มีบัญชีอยู่แล้ว? <button class="text-button" id="show-login" type="button">เข้าสู่ระบบ</button></p>
+        </div>
+
+        <p id="message" class="message" role="alert" aria-live="polite"></p>
+      </section>
+    </main>
+    <script src="./app.js?v=20260915"></script>
+    <script src="./home.js?v=20260915"></script>
+  </body>
+</html>

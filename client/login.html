@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="th">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Keylnw | เข้าสู่ระบบ</title><link rel="stylesheet" href="./styles.css" /></head>
+  <body><main class="page-shell"><section class="auth-card" aria-labelledby="page-title">
+    <a class="brand" href="./index.html"><span class="brand-mark">K</span><span>KEYLNW</span></a>
+    <div id="auth-view"><p class="eyebrow">WELCOME BACK</p><h1 id="page-title">เข้าสู่ระบบ</h1><p class="subtitle">จัดการบัญชีของคุณได้ในที่เดียว</p>
+      <form id="login-form" novalidate><label for="login-identifier">Email หรือชื่อผู้ใช้</label><input id="login-identifier" name="identifier" type="text" autocomplete="username" required placeholder="Email หรือชื่อผู้ใช้" /><label for="login-password">รหัสผ่าน</label><input id="login-password" name="password" type="password" autocomplete="current-password" required placeholder="อย่างน้อย 8 ตัวอักษร" /><button type="submit">เข้าสู่ระบบ</button></form>
+      <p class="switch-text">ยังไม่มีบัญชี? <button class="text-button" id="show-register" type="button">สมัครสมาชิก</button></p>
+    </div>
+    <div id="register-view" hidden><p class="eyebrow">CREATE ACCOUNT</p><h1>สมัครสมาชิก</h1><p class="subtitle">เริ่มต้นใช้งาน Keylnw ได้เลย</p>
+      <form id="register-form" novalidate><label for="register-username">ชื่อผู้ใช้</label><input id="register-username" name="username" type="text" autocomplete="username" required placeholder="ชื่อผู้ใช้" /><label for="register-email">อีเมล</label><input id="register-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com" /><label for="register-password">รหัสผ่าน</label><input id="register-password" name="password" type="password" autocomplete="new-password" minlength="8" required placeholder="อย่างน้อย 8 ตัวอักษร" /><button type="submit">สร้างบัญชี</button></form>
+      <p class="switch-text">มีบัญชีอยู่แล้ว? <button class="text-button" id="show-login" type="button">เข้าสู่ระบบ</button></p>
+    </div><p id="message" class="message" role="alert" aria-live="polite"></p>
+  </section></main><script src="./app.js?v=20260915"></script></body>
+</html>

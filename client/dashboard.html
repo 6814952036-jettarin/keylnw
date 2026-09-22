@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keylnw | แดชบอร์ด</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="auth-card dashboard-card" aria-live="polite">
+        <div class="brand"><span class="brand-mark">K</span><span>KEYLNW</span></div>
+        <p class="eyebrow">DASHBOARD</p>
+        <h1>ยินดีต้อนรับ <span id="username">...</span></h1>
+        <p class="subtitle">คุณเข้าสู่ระบบเรียบร้อยแล้ว</p>
+        <div class="user-details">
+          <span>อีเมล</span>
+          <strong id="email">...</strong>
+          <span>สถานะบัญชี</span>
+          <strong id="profile">...</strong>
+        </div>
+        <button id="logout" type="button" class="logout-button">ออกจากระบบ</button>
+        <p id="message" class="message" role="alert"></p>
+      </section>
+      <section id="product-admin" class="admin-panel" hidden aria-labelledby="product-admin-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">ADMIN ONLY · PACKAGE MANAGEMENT</p>
+            <h2 id="product-admin-title">ตัวจัดการแพ็คเกจ</h2>
+          </div>
+          <div class="panel-actions"><button id="new-package" class="secondary-button" type="button">เพิ่มแพ็คเกจใหม่</button><button id="cancel-product" class="secondary-button" type="button" hidden>ยกเลิกแก้ไข</button></div>
+        </div>
+        <div class="package-toolbar"><input id="package-search" type="search" placeholder="ค้นหาแพ็คเกจหรือเกม" /><select id="package-status-filter"><option value="all">ทุกสถานะ</option><option value="available">พร้อมขาย</option><option value="out_of_stock">สินค้าหมด</option></select></div>
+        <form id="product-form" class="product-form">
+          <input id="product-id" name="id" type="hidden" />
+          <label for="product-game-name">ชื่อเกม</label>
+          <input id="product-game-name" name="gameName" required placeholder="เช่น Free Fire" />
+          <label for="product-name">ชื่อสินค้า</label>
+          <input id="product-name" name="name" required placeholder="เช่น 110 Diamonds" />
+          <div class="form-row">
+            <div><label for="product-price">ราคาขาย</label><input id="product-price" name="price" type="number" min="0" step="0.01" required /></div>
+            <div><label for="product-cost">ราคาทุน</label><input id="product-cost" name="costPrice" type="number" min="0" step="0.01" required /></div>
+          </div>
+          <fieldset class="promotion-fields"><legend>โปรโมชั่นแพ็กเกจนี้</legend><label class="checkbox-label"><input id="product-promo-enabled" name="promoEnabled" type="checkbox" value="true" /> เปิดใช้ส่วนลด</label><div class="form-row"><div><label for="product-discount">ส่วนลด (%)</label><input id="product-discount" name="discountPercent" type="number" min="0" max="100" step="1" value="0" /></div><div><label for="product-promo-label">ป้ายโปรโมชั่น</label><input id="product-promo-label" name="promoLabel" placeholder="เช่น FLASH SALE" /></div></div></fieldset>
+          <label for="product-status">สถานะ</label>
+          <select id="product-status" name="status"><option value="available">พร้อมขาย</option><option value="out_of_stock">สินค้าหมด</option></select>
+          <label for="product-stock">จำนวนสินค้า</label>
+          <input id="product-stock" name="stock" type="number" min="0" step="1" required value="0" />
+          <label for="product-image">URL รูปสินค้า</label>
+          <input id="product-image" name="imageUrl" type="url" placeholder="https://..." />
+          <label for="product-description">รายละเอียด</label>
+          <textarea id="product-description" name="description" rows="3" placeholder="รายละเอียดสินค้า"></textarea>
+          <button type="submit">บันทึกสินค้า</button>
+        </form>
+        <div id="product-list" class="product-list" aria-live="polite"></div>
+        <div class="admin-data-grid"><section><h3>คำสั่งซื้อ</h3><div id="order-list"></div></section><section><h3>สมาชิก</h3><div id="user-list"></div></section></div>
+      </section>
+    </main>
+    <script src="./dashboard.js"></script>
+  </body>
+</html>

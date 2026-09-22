@@ -1,0 +1,21 @@
+.service-header { margin: 20px 0 18px; padding: 34px 38px; border-radius: 5px; background: linear-gradient(115deg, #202326, #42484d); color: #fff; }
+.service-header .eyebrow { margin: 0 0 8px; color: #f6e53d; }
+.service-header h1 { margin: 0; font-size: clamp(1.8rem, 4vw, 3rem); }
+.service-header p:last-child { margin: 10px 0 0; color: #d1d5d8; }
+.service-content { min-height: 260px; padding: 22px; border-radius: 5px; background: #fff; }
+.service-product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.service-product-card { display: flex; min-width: 0; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid #e1e4e7; border-radius: 8px; background: #fff; }
+.service-product-card img { width: 100%; aspect-ratio: 1.35; border-radius: 5px; object-fit: cover; }
+.service-product-card small { color: #8b9197; }
+.service-product-card h2 { overflow: hidden; margin: 0; color: #30353a; font-size: .9rem; text-overflow: ellipsis; white-space: nowrap; }
+.service-product-card strong { color: #f3422d; }
+.service-product-card button { margin-top: auto; padding: 8px; border-radius: 5px; background: #f6e53d; color: #252729; font-size: .78rem; }
+.service-product-card button:hover { background: #e4d52b; }
+.policy-panel { max-width: 720px; margin: auto; padding: 20px; }
+.policy-panel h2 { margin-top: 0; color: #30353a; }
+.policy-panel li { margin: 15px 0; color: #626970; line-height: 1.7; }
+.policy-panel .primary-link { margin-top: 12px; background: #252729; font-size: .8rem; }
+.service-page .shop-menu a.active { background: #f6e53d; color: #202122; }
+.service-page .shop-menu a.active span { color: #202122; }
+@media (max-width: 1000px) { .service-product-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 650px) { .service-header { padding: 24px 20px; }.service-content { padding: 12px; }.service-product-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }.service-product-card { padding: 9px; }.shop-page .shop-sidebar.is-open { display: flex; width: 240px; box-shadow: 12px 0 30px #0005; } }

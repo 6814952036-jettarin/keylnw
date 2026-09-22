@@ -46,8 +46,9 @@
           <select id="product-status" name="status"><option value="available">พร้อมขาย</option><option value="out_of_stock">สินค้าหมด</option></select>
           <label for="product-stock">จำนวนสินค้า</label>
           <input id="product-stock" name="stock" type="number" min="0" step="1" required value="0" />
-          <label for="product-image">URL รูปสินค้า</label>
-          <input id="product-image" name="imageUrl" type="url" placeholder="https://..." />
+          <label for="product-image">รูปสินค้า</label>
+          <input id="product-image" name="imageFile" type="file" accept="image/*" />
+          <input id="product-image-url" name="imageUrl" type="hidden" />
           <label for="product-description">รายละเอียด</label>
           <textarea id="product-description" name="description" rows="3" placeholder="รายละเอียดสินค้า"></textarea>
           <button type="submit">บันทึกสินค้า</button>

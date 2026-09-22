@@ -5,6 +5,10 @@ res.status(404).json({ message: `Route not found: ${req.originalUrl}` });
 const errorHandler = (err, req, res, next) => {
     console.error(err.stack);
 
+    if (err.name === "MulterError" && err.code === "LIMIT_FILE_SIZE") {
+      return res.status(413).json({ message: "Image must be 4 MB or smaller" });
+    }
+
     if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
       return res.status(400).json({ message: "รูปแบบข้อมูลที่ส่งมาไม่ถูกต้อง" });
     }

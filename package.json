@@ -2,6 +2,15 @@
   "name": "keylnw-workspace",
   "private": true,
   "scripts": {
-    "start": "node start.js"
+    "start": "node start.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.3",
+    "multer": "^2.0.2"
   }
 }

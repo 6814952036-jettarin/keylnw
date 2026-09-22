@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = window.location.hostname === "localhost" ? "http://localhost:5000/api" : "/api";
 const token = localStorage.getItem("authToken");
 const message = document.querySelector("#message");
 const adminPanel = document.querySelector("#product-admin");
@@ -22,6 +22,19 @@ const apiRequest = async (path, options = {}) => {
   const data = response.status === 204 ? null : await response.json();
   if (!response.ok) throw new Error(data?.message || "ไม่สามารถดำเนินการได้");
   return data;
+};
+
+const uploadProductImage = async (file) => {
+  const body = new FormData();
+  body.append("file", file);
+  const response = await fetch(`${API_BASE_URL}/uploads/image`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+    body,
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data?.message || "อัปโหลดรูปไม่สำเร็จ");
+  return data.url;
 };
 
 const resetProductForm = () => {
@@ -63,7 +76,7 @@ const renderProducts = (products) => {
       document.querySelector("#product-cost").value = product.costPrice;
       document.querySelector("#product-status").value = product.status;
       document.querySelector("#product-stock").value = product.stock || 0;
-      document.querySelector("#product-image").value = product.imageUrl || "";
+      document.querySelector("#product-image-url").value = product.imageUrl || "";
       document.querySelector("#product-description").value = product.description || "";
       document.querySelector("#product-promo-enabled").checked = Boolean(product.promoEnabled);
       document.querySelector("#product-discount").value = product.discountPercent || 0;
@@ -137,8 +150,11 @@ productForm.addEventListener("submit", async (event) => {
   if (!productForm.reportValidity()) return;
   const formData = Object.fromEntries(new FormData(productForm));
   const productId = formData.id;
+  const imageFile = formData.imageFile;
   delete formData.id;
+  delete formData.imageFile;
   try {
+    if (imageFile?.size) formData.imageUrl = await uploadProductImage(imageFile);
     await apiRequest(productId ? `/products/${productId}` : "/products", {
       method: productId ? "PUT" : "POST",
       body: JSON.stringify(formData),

@@ -12,3 +12,10 @@ module.exports = async (req, res) => {
     return res.status(500).json({ message: "Database connection failed" });
   }
 };
+
+// Let multer parse multipart/form-data so files can be streamed to Blob.
+module.exports.config = {
+  api: {
+    bodyParser: false,
+  },
+};

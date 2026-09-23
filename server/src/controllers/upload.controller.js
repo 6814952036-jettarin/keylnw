@@ -3,6 +3,9 @@ const { put } = require("@vercel/blob");
 
 const uploadProductImage = async (req, res, next) => {
   try {
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      return res.status(500).json({ message: "BLOB_READ_WRITE_TOKEN is required" });
+    }
     if (!req.file) return res.status(400).json({ message: "Image file is required" });
     if (!req.file.mimetype.startsWith("image/")) {
       return res.status(400).json({ message: "Only image files are allowed" });

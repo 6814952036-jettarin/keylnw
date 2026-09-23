@@ -21,15 +21,16 @@ module.exports = async (req, res) => {
       code: error.code,
       message: error.message,
     });
-    const reason = error.message?.includes("Authentication failed")
+    const errorText = `${error.name || ""} ${error.code || ""} ${error.message || ""}`;
+    const reason = /Authentication failed|bad auth|8000|Unauthorized/i.test(errorText)
       ? "MongoDB credentials are invalid"
-      : error.message?.includes("querySrv") || error.message?.includes("ENOTFOUND")
+      : /querySrv|ENOTFOUND|MongoParseError|Invalid scheme/i.test(errorText)
         ? "MongoDB cluster address is invalid"
-        : error.message?.includes("Server selection") || error.message?.includes("timed out")
+        : /ServerSelection|Server selection|timed out|ECONNREFUSED|network/i.test(errorText)
           ? "MongoDB Atlas rejected the connection or is not allowing this network"
           : error.message === "MONGO_URI is required"
             ? "MONGO_URI is not configured in Vercel"
-            : "MongoDB connection failed";
+            : "MongoDB connection failed: check Vercel Runtime Logs";
     return res.status(500).json({ message: reason });
   }
 };

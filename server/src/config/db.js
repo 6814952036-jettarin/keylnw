@@ -7,7 +7,9 @@ const connectDB = async () => {
     if (connectionPromise) return connectionPromise;
     if (!process.env.MONGO_URI) throw new Error("MONGO_URI is required");
 
-    connectionPromise = mongoose.connect(process.env.MONGO_URI)
+    connectionPromise = mongoose.connect(process.env.MONGO_URI, {
+        serverSelectionTimeoutMS: 10000,
+    })
         .then(() => {
             console.log("MongoDB connected");
             return mongoose.connection;

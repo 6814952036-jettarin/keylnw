@@ -93,7 +93,10 @@ const renderCatalog = (products) => {
     card.className = "package-card";
     const image = document.createElement("img");
     image.className = "package-image";
-    image.src = product.imageUrl || (typeof product.gameId === "object" ? product.gameId.coverImage : "") || "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80";
+    const isLegacyValorantImage = product.gameName?.toLowerCase() === "valorant" && product.imageUrl?.includes("photo-1542751371-adc38448a05e");
+    image.src = isLegacyValorantImage
+      ? "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png"
+      : product.imageUrl || (typeof product.gameId === "object" ? product.gameId.coverImage : "") || "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80";
     image.alt = product.name;
     const game = document.createElement("small");
     game.textContent = product.gameName || (typeof product.gameId === "object" ? product.gameId.name : "เติมเกม");

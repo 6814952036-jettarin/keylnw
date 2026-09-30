@@ -1,4 +1,4 @@
-const valorantImage = "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=85";
+const valorantImage = "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png";
 
 const valorantProducts = [
   { name: "475 Valorant Points", price: 179, costPrice: 155 },

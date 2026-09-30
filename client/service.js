@@ -39,7 +39,10 @@ const renderProducts = (products) => {
   const grid = document.createElement("div"); grid.className = "service-product-grid";
   products.forEach((product) => {
     const card = document.createElement("article"); card.className = "service-product-card";
-    const image = document.createElement("img"); image.src = product.imageUrl || "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80"; image.alt = product.name;
+    const image = document.createElement("img");
+    const isLegacyValorantImage = product.gameName?.toLowerCase() === "valorant" && product.imageUrl?.includes("photo-1542751371-adc38448a05e");
+    image.src = isLegacyValorantImage ? "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png" : product.imageUrl || "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80";
+    image.alt = product.name;
     const game = document.createElement("small"); game.textContent = product.gameName || "ดิจิทัลไอเทม";
     const name = document.createElement("h2"); name.textContent = product.name;
     const price = document.createElement("strong"); price.textContent = `${Number(product.salePrice ?? product.price).toFixed(2)} บาท`;

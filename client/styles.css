@@ -27,7 +27,7 @@ button:hover { background: #6d28d9; } button:disabled { opacity: .65; cursor: wa
 .product-catalog { min-height: 120px; }@media (max-width: 700px) { .product-catalog { grid-template-columns: 1fr; }.form-row { grid-template-columns: 1fr; }.top-nav > div { flex-wrap: wrap; justify-content: flex-end; }.cart-panel { padding: 22px; }.cart-item { align-items: flex-start; flex-direction: column; }.quantity-controls { align-self: flex-end; } }
 
 /* Storefront layout */
-.shop-page { background: #eef0f3; color: #20242a; font-family: "Trebuchet MS", "Noto Sans Thai", sans-serif; }.shop-page [hidden] { display: none !important; }
+.shop-page { background-color: #eef0f3; background-image: linear-gradient(135deg, rgba(246, 229, 61, .14), transparent 34%), linear-gradient(315deg, rgba(37, 39, 41, .07), transparent 42%), repeating-linear-gradient(0deg, transparent 0, transparent 39px, rgba(255, 255, 255, .34) 40px), repeating-linear-gradient(90deg, transparent 0, transparent 39px, rgba(37, 39, 41, .035) 40px); background-attachment: fixed; color: #20242a; font-family: "Trebuchet MS", "Noto Sans Thai", sans-serif; }.shop-page [hidden] { display: none !important; }
 .shop-page .shop-sidebar { position: fixed; z-index: 8; inset: 0 auto 0 0; display: flex; width: 184px; flex-direction: column; background: #202122; color: #f8f8f8; }
 .shop-page .shop-brand { height: 76px; padding: 0 18px; border-bottom: 1px solid #373737; color: #fff; font-size: .82rem; }
 .shop-page .brand-mark { width: 33px; height: 33px; border-radius: 4px; background: #f6e53d; color: #202122; }
